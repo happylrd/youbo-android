@@ -2,9 +2,13 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="io.happylrd.daphne.MainActivity">
+    style="@style/Material.Toolbar"
+    tools:context="io.happylrd.daphne.activity.MainActivity">
+
+    <include layout="@layout/item_toolbar"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,6 +17,12 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintTop_creator="1"
+        tools:layout_constraintRight_creator="1"
+        tools:layout_constraintBottom_creator="1"
+        tools:layout_constraintLeft_creator="1" />
+
+    <!--<include layout="@layout/layout_navigation_drawer"/>-->
 
 </android.support.constraint.ConstraintLayout>
