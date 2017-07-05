@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- common dimension resource start -->
+
+    <!-- common dimension resource end -->
+    <!-- navigation-menu dimension resource start -->
+    <dimen name="navigation_max_width">240dp</dimen>
+    <dimen name="navigation_text_size">14sp</dimen>
+    <dimen name="navigation_drawable_margin">16dp</dimen>
+    <dimen name="navigation_item_height">48dp</dimen>
+    <dimen name="navigation_avatar">64dp</dimen>
+    <!-- navigation-menu dimension resource end -->
+
+
+</resources>
