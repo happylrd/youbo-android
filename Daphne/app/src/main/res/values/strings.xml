@@ -1,3 +1,34 @@
 <resources>
     <string name="app_name">Daphne</string>
+
+    <!-- common string -->
+    <string name="NAN">:NAN</string>
+
+
+    <string name="sample_email">sample@sample.com</string>
+    <string name="sample_id">Sample sample</string>
+
+    <string-array name="test_strings">
+        <item>VK</item>
+        <item>Facebook</item>
+        <item>Twitter</item>
+        <item>Instagram</item>
+        <item>Google plus</item>
+        <item>Google mail</item>
+    </string-array>
+
+
+    <string-array name="drawer_titles">
+        <item>Repository</item>
+        <item>Favorite</item>
+        <item>Star</item>
+        <item>@string/NAN</item>
+        <item>Following</item>
+        <item>Follower</item>
+        <item>Message</item>
+        <item>@string/NAN</item>
+        <item>Settings</item>
+        <item>Send Feedback</item>
+    </string-array>
+
 </resources>
