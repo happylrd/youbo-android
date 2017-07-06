@@ -22,7 +22,9 @@ public class TestUtil {
     public static String[] getTestStringArr(){
         return new String[]{"饺子","混沌","汤圆","出口","电脑","洗脚盆"};
     }
-
+    public static void PrintLog(String s){
+        Log.d(sign+"\t"+"NO CONTEXT EXIST",s);
+    }
     public static void PrintLog(View v, String s,Boolean showToast){
         if(showToast){
             Toast.makeText(v.getContext(),s,Toast.LENGTH_LONG).show();

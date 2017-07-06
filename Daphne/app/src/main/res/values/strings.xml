@@ -31,4 +31,7 @@
         <item>Send Feedback</item>
     </string-array>
 
+    <string name="fragment_star">Star</string>
+    <string name="fragment_suggest">Suggest</string>
+
 </resources>

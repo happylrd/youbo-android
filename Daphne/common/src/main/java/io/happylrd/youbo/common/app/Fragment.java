@@ -26,7 +26,7 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (mRoot == null) {
-            int layoutId = getContentLayoutId();
+            int layoutId = getContentLayout();
             View root = inflater.inflate(layoutId, container, false);
             initWidget(root);
             mRoot = root;
@@ -51,7 +51,7 @@ public abstract class Fragment extends android.support.v4.app.Fragment {
 
     }
 
-    protected abstract int getContentLayoutId();
+    protected abstract int getContentLayout();
 
     protected void initWidget(View root) {
         mRootUnBinder = ButterKnife.bind(this, root);
