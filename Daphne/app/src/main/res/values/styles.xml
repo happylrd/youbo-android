@@ -13,6 +13,10 @@
 
     </style>
 
+    <style name="Material.Splash" parent="Material">
+        <item name="android:windowBackground">@drawable/background_splash</item>
+    </style>
+
     <style name="Material.Layout" parent="Material">
         <item name="android:layout_marginTop">8dp</item>
         <item name="android:paddingLeft">16dp</item>
