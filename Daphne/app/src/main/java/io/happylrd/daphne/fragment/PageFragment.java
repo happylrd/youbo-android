@@ -50,11 +50,31 @@ public class PageFragment extends Fragment {
         return R.layout.fragment_suggest;
     }
 
-
-
     @Override
     protected void initArgs(Bundle bundle) {
         mPageIdx = bundle.getInt(DISPLAY_PAGE);
         TestUtil.PrintLog("p3:"+ mPageIdx);
+    }
+
+    @Override
+    protected void initWidget(View root) {
+        super.initWidget(root);
+        switch (mPageIdx){
+            case R.layout.fragment_star:
+                initPageStar();
+                break;
+            case R.layout.fragment_suggest:
+                initPageSuggest();
+                break;
+        }
+    }
+
+    private void initPageSuggest() {
+        TestUtil.PrintLog(this.getContext(),"Load Page Suggest Data");
+    }
+
+    private void initPageStar() {
+        TestUtil.PrintLog(this.getContext(),"Load Page Star Data");
+
     }
 }
