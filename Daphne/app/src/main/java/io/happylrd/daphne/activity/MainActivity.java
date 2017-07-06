@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
     RecyclerView recyclerView;
 
     @Override
-    protected int getContentLayoutId() {
+    protected int getContentLayout() {
         return R.layout.activity_main;
     }
 

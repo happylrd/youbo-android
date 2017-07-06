@@ -1,9 +1,14 @@
 package io.happylrd.youbo.common.app;
 
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
+import android.transition.Transition;
+import android.transition.TransitionInflater;
 
 import java.util.List;
 
@@ -18,7 +23,7 @@ public abstract class Activity extends AppCompatActivity {
         initWindows();
 
         if (initArgs(getIntent().getExtras())) {
-            int layoutId = getContentLayoutId();
+            int layoutId = getContentLayout();
             setContentView(layoutId);
 
             initWidget();
@@ -39,7 +44,7 @@ public abstract class Activity extends AppCompatActivity {
         return true;
     }
 
-    protected abstract int getContentLayoutId();
+    protected abstract int getContentLayout();
 
     protected void initWidget() {
         ButterKnife.bind(this);
@@ -71,5 +76,31 @@ public abstract class Activity extends AppCompatActivity {
 
         super.onBackPressed();
         finish();
+    }
+
+    // -- general method for start new activity --
+    public void startActivity(Class activity,@Nullable Bundle bundle){
+        Intent intent = new Intent();
+        intent.setClass(this,activity);
+        if(bundle != null) {
+            intent.putExtra("bundle", bundle);
+        }
+        startActivity(intent);
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void setupWindowEnterAnimations(int transitionResId) {
+        Transition transition = TransitionInflater.from(this).inflateTransition(transitionResId);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setEnterTransition(transition);
+        }
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
+    private void setupWindowExitAnimations(int transitionResId) {
+        Transition transition = TransitionInflater.from(this).inflateTransition(transitionResId);
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            getWindow().setExitTransition(transition);
+        }
     }
 }
