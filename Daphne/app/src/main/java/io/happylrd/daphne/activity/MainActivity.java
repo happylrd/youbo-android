@@ -18,13 +18,22 @@ import java.util.List;
 import java.util.Objects;
 
 import butterknife.BindArray;
+import butterknife.BindView;
 import io.happylrd.daphne.R;
+import io.happylrd.daphne.adapter.MainActivityPagerAdapter;
 import io.happylrd.youbo.common.app.Activity;
 import io.happylrd.youbo.common.util.TestUtil;
 
 public class MainActivity extends Activity {
+    /* bind data */
     @BindArray(R.array.drawer_titles)
     String[] mTitles;
+
+    /* bind views */
+    @BindView(R.id.tablayout)
+    TabLayout mTabLayout;
+    @BindView(R.id.pager)
+    ViewPager mViewPager;
 
 //    @BindView(R.id.drawer_layout) DrawerLayout mDrawer;
 
@@ -78,6 +87,21 @@ public class MainActivity extends Activity {
         TestUtil.PrintLog(this,"Initial Toolbar Success!");
         return this;
     }
+
+    private void _initTablayout(){
+        mViewPager.setAdapter(
+                new MainActivityPagerAdapter(
+                        this.getSupportFragmentManager(),
+                        new int[]{R.layout.fragment_star,R.layout.fragment_suggest},
+                        this
+                )
+        );
+        mTabLayout.setupWithViewPager(mViewPager);
+    }
+    private MainActivity initTablayout() {
+        TestUtil.PrintLog(this,"Initial Tablayout Start...");
+        _initTablayout();
+        TestUtil.PrintLog(this,"Initial Tablayout Success!");
         return this;
     }
 
