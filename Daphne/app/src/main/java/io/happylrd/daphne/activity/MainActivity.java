@@ -1,18 +1,16 @@
 package io.happylrd.daphne.activity;
 
-import android.content.Context;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.AbstractDrawerItem;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import java.util.ArrayList;
@@ -40,11 +38,10 @@ public class MainActivity extends Activity {
     @Override
     protected void initWidget() {
         super.initWidget();
-        TestUtil.PrintLog(this,"Initial Seccuss");
-        initToolbar().initNavBar();
+        initToolbar().initNavBar().initTablayout();
     }
 
-    private MainActivity initNavBar() {
+    private void _initNavBar(){
         List<AbstractDrawerItem> items = initDrawerItem(mTitles);
 
         int headRes = R.layout.layout_drawer_header;
@@ -63,12 +60,24 @@ public class MainActivity extends Activity {
         }
         //
         builder.build();
+    }
+    private MainActivity initNavBar() {
+        TestUtil.PrintLog(this,"Initial Nav Start...");
+        _initNavBar();;
+        TestUtil.PrintLog(this,"Initial Nav Success!");
         return this;
     }
 
-    private MainActivity initToolbar() {
+    private void _initToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+    }
+    private MainActivity initToolbar() {
+        TestUtil.PrintLog(this,"Initial Toolbar Start...");
+        _initToolbar();
+        TestUtil.PrintLog(this,"Initial Toolbar Success!");
+        return this;
+    }
         return this;
     }
 
