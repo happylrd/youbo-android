@@ -26,11 +26,12 @@ dependencies {
     })
 
     compile "com.android.support:appcompat-v7:$rootProject.ext.supportVersion"
-    compile 'com.android.support.constraint:constraint-layout:1.0.2'
     compile "com.android.support:recyclerview-v7:$rootProject.ext.supportVersion"
     compile "com.android.support:cardview-v7:$rootProject.ext.supportVersion"
     compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
+    compile "com.android.support.constraint:constraint-layout:$rootProject.ext.constraintVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
+
 
     testCompile 'junit:junit:4.12'
     compile project(':common')
@@ -38,4 +39,7 @@ dependencies {
     compile('com.mikepenz:materialdrawer:5.6.0@aar') {
         transitive = true
     }
+
+    compile "com.github.vipulasri:timelineview:$rootProject.ext.timelineVersion"
+
 }
