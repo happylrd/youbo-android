@@ -10,7 +10,7 @@
     </style>
     
     <style name="Material" parent="AppTheme">
-
+        <item name="android:listDivider">@drawable/item_divider</item>
     </style>
 
     <style name="Material.Splash" parent="Material">
@@ -18,10 +18,9 @@
     </style>
 
     <style name="Material.Layout" parent="Material">
-        <item name="android:layout_marginTop">8dp</item>
-        <item name="android:paddingLeft">16dp</item>
-        <item name="android:paddingRight">16dp</item>
+
     </style>
+
     <style name="Material.NavigationMenu" parent="Material">
         <!-- Font -->
         <item name="android:textColorPrimary">@color/text</item>

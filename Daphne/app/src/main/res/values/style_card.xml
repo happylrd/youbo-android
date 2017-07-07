@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Material.Card" parent="Material">
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+        <item name="android:paddingTop">8dp</item>
+        <item name="android:paddingBottom">8dp</item>
+    </style>
+
+    <style name="Material.Card.Text" parent="Material.Card">
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+    <style name="Material.Card.Text.Primary" parent="Material.Card.Text">
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="Material.Card.Text.Secondary" parent="Material.Card.Text">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+
+</resources>
