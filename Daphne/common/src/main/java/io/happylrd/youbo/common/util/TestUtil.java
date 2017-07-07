@@ -5,6 +5,11 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import io.happylrd.youbo.common.widget.component.FakeModel;
+
 /**
  * <h1>modify class name here</h1>
  * io.happylrd.youbo.common.util
@@ -22,7 +27,9 @@ public class TestUtil {
     public static String[] getTestStringArr(){
         return new String[]{"饺子","混沌","汤圆","出口","电脑","洗脚盆"};
     }
-
+    public static void PrintLog(String s){
+        Log.d(sign+"\t"+"NO CONTEXT EXIST",s);
+    }
     public static void PrintLog(View v, String s,Boolean showToast){
         if(showToast){
             Toast.makeText(v.getContext(),s,Toast.LENGTH_LONG).show();
@@ -37,5 +44,19 @@ public class TestUtil {
     }
     public static void PrintLog(Context ctx, String s) {
         Log.d(sign+"\t"+ctx.toString(),s);
+    }
+
+    public static FakeModel getFakeModel(){return new FakeModel();}
+
+    public static List<FakeModel> getFakeModelList(int i) {
+        ArrayList<FakeModel> list = new ArrayList<>();
+        for (int j = 0; j < i; j++) {
+            list.add(new FakeModel());
+        }
+        return list;
+    }
+
+    public static void PrintError(View v,String s) {
+        Log.e(sign+'\t'+v.toString(),s);
     }
 }

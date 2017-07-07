@@ -1,18 +1,16 @@
 package io.happylrd.daphne.activity;
 
-import android.content.Context;
-import android.support.design.widget.Snackbar;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
-import android.widget.Toast;
 
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.AbstractDrawerItem;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
-import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 
 import java.util.ArrayList;
@@ -20,31 +18,39 @@ import java.util.List;
 import java.util.Objects;
 
 import butterknife.BindArray;
+import butterknife.BindView;
 import io.happylrd.daphne.R;
+import io.happylrd.daphne.adapter.MainActivityPagerAdapter;
 import io.happylrd.youbo.common.app.Activity;
 import io.happylrd.youbo.common.util.TestUtil;
 
 public class MainActivity extends Activity {
+    /* bind data */
     @BindArray(R.array.drawer_titles)
     String[] mTitles;
+
+    /* bind views */
+    @BindView(R.id.tablayout)
+    TabLayout mTabLayout;
+    @BindView(R.id.pager)
+    ViewPager mViewPager;
 
 //    @BindView(R.id.drawer_layout) DrawerLayout mDrawer;
 
     RecyclerView recyclerView;
 
     @Override
-    protected int getContentLayoutId() {
+    protected int getContentLayout() {
         return R.layout.activity_main;
     }
 
     @Override
     protected void initWidget() {
         super.initWidget();
-        TestUtil.PrintLog(this,"Initial Seccuss");
-        initToolbar().initNavBar();
+        initToolbar().initNavBar().initTablayout();
     }
 
-    private MainActivity initNavBar() {
+    private void _initNavBar(){
         List<AbstractDrawerItem> items = initDrawerItem(mTitles);
 
         int headRes = R.layout.layout_drawer_header;
@@ -63,12 +69,39 @@ public class MainActivity extends Activity {
         }
         //
         builder.build();
+    }
+    private MainActivity initNavBar() {
+        TestUtil.PrintLog(this,"Initial Nav Start...");
+        _initNavBar();;
+        TestUtil.PrintLog(this,"Initial Nav Success!");
         return this;
     }
 
-    private MainActivity initToolbar() {
+    private void _initToolbar(){
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+    }
+    private MainActivity initToolbar() {
+        TestUtil.PrintLog(this,"Initial Toolbar Start...");
+        _initToolbar();
+        TestUtil.PrintLog(this,"Initial Toolbar Success!");
+        return this;
+    }
+
+    private void _initTablayout(){
+        mViewPager.setAdapter(
+                new MainActivityPagerAdapter(
+                        this.getSupportFragmentManager(),
+                        new int[]{R.layout.fragment_star,R.layout.fragment_suggest},
+                        this
+                )
+        );
+        mTabLayout.setupWithViewPager(mViewPager);
+    }
+    private MainActivity initTablayout() {
+        TestUtil.PrintLog(this,"Initial Tablayout Start...");
+        _initTablayout();
+        TestUtil.PrintLog(this,"Initial Tablayout Success!");
         return this;
     }
 
