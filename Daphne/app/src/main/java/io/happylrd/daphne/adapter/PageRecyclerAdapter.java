@@ -1,14 +1,14 @@
 package io.happylrd.daphne.adapter;
 
-import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.TextClock;
-import android.widget.TextView;
 
 import java.util.List;
 
 import butterknife.BindView;
+import cn.crepusculo.cards.ComponentContainer;
+import cn.crepusculo.cards.ComponentHeader;
 import io.happylrd.daphne.R;
+import io.happylrd.youbo.common.util.TestUtil;
 import io.happylrd.youbo.common.widget.component.FakeModel;
 import io.happylrd.youbo.common.widget.recycler.RecyclerAdapter;
 
@@ -24,8 +24,8 @@ import io.happylrd.youbo.common.widget.recycler.RecyclerAdapter;
  */
 
 public class PageRecyclerAdapter<T> extends RecyclerAdapter {
-    public PageRecyclerAdapter(List<T> dataset,AdapterListener<T> listener){
-        super(dataset,listener);
+    public PageRecyclerAdapter(List<T> dataset, AdapterListener<T> listener) {
+        super(dataset, listener);
     }
 
 //    // 进行 view 和 holder 的绑定
@@ -44,33 +44,42 @@ public class PageRecyclerAdapter<T> extends RecyclerAdapter {
     // inflate 在这里已经完成, 我们只需要根据 viewType 构建 ViewHolder
     @Override
     protected ViewHolder onCreateViewHolder(View root, int viewType) {
-        switch (viewType){
+        switch (viewType) {
             default:
-                return new GeneralViewHolder(root);
+                return new GeneralViewHolder(root, viewType);
         }
     }
 
     @Override
     public void update(Object data, ViewHolder holder) {
-
+        TestUtil.PrintLog("recycler update");
     }
 
-    public class GeneralViewHolder extends ViewHolder<FakeModel>{
-        @BindView(R.id.title)
-        TextView tTitle;
-        @BindView(R.id.author)
-        TextView tAuthor;
-        @BindView(R.id.date)
-        TextClock tClock;
+    public class GeneralViewHolder extends ViewHolder<FakeModel> {
+        @BindView(R.id.header)
+        ComponentHeader header;
+        @BindView(R.id.container)
+        ComponentContainer container;
 
-        public GeneralViewHolder(View itemView) {
+        int tViewType;
+
+        public GeneralViewHolder(View itemView, int viewType) {
             super(itemView);
+            tViewType = viewType;
+            header = ComponentHeader.getNewInstance(itemView.getContext());
+            container = ComponentContainer.getNewInstance(itemView.getContext());
         }
+
         @Override
         protected void onBind(FakeModel data) {
-            this.tTitle.setText(data.getTitle());
-            this.tAuthor.setText(data.getTitle());
-            this.tClock.setFormat12Hour("h:mm");
+            String s = TestUtil.getFakeModel().getTitle();
+            TestUtil.PrintLog(s);
+            header.setHead(s)
+                    .setSubHead(s);
+            header.setImage(true);
+            container.setHead(s + s)
+                    .setInfo(s)
+                    .setContent(s+s+s+s);
         }
     }
 }

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="card_line_size">2dp</dimen>
+    <dimen name="card_line_marker_size">24dp</dimen>
+    <dimen name="card_avatar_size">64dp</dimen>
+    <dimen name="card_drawable">24dp</dimen>
+</resources>

@@ -91,9 +91,9 @@ public class PageFragment extends Fragment implements RecyclerAdapter.AdapterLis
             recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
             recycler.setHasFixedSize(true);
 
-            DividerItemDecoration dividerDrawerItem = new DividerItemDecoration (recycler.getContext(),
-                    linearLayoutManager.getOrientation());
-            recycler.addItemDecoration(dividerDrawerItem);
+//            DividerItemDecoration dividerDrawerItem = new DividerItemDecoration (recycler.getContext(),
+//                    linearLayoutManager.getOrientation());
+//            recycler.addItemDecoration(dividerDrawerItem);
 
         } catch (NullPointerException e) {
             TestUtil.PrintError(this.getView(),e.toString());

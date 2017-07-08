@@ -32,6 +32,6 @@ public class FakeModel {
 
     String mTitle;
     public FakeModel(){
-        mTitle = "Randrom:"+(int)(Math.random()*100);
+        mTitle = "Random:"+(int)(Math.random()*100);
     }
 }
