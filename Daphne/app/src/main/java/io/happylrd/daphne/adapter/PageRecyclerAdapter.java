@@ -5,8 +5,8 @@ import android.view.View;
 import java.util.List;
 
 import butterknife.BindView;
-import cn.crepusculo.cards.ComponentContainer;
-import cn.crepusculo.cards.ComponentHeader;
+import cn.crepusculo.cards.GeneralCardView;
+import cn.crepusculo.model.GeneralCard;
 import io.happylrd.daphne.R;
 import io.happylrd.youbo.common.util.TestUtil;
 import io.happylrd.youbo.common.widget.component.FakeModel;
@@ -38,7 +38,7 @@ public class PageRecyclerAdapter<T> extends RecyclerAdapter {
     @Override
     protected int getItemViewType(int position, Object data) {
 //       return data.type;
-        return R.layout.item_card_general;
+        return R.layout.item_recyeler_general;
     }
 
     // inflate 在这里已经完成, 我们只需要根据 viewType 构建 ViewHolder
@@ -56,30 +56,22 @@ public class PageRecyclerAdapter<T> extends RecyclerAdapter {
     }
 
     public class GeneralViewHolder extends ViewHolder<FakeModel> {
-        @BindView(R.id.header)
-        ComponentHeader header;
-        @BindView(R.id.container)
-        ComponentContainer container;
+        @BindView(R.id.card)
+        GeneralCardView generalCard;
 
-        int tViewType;
 
         public GeneralViewHolder(View itemView, int viewType) {
             super(itemView);
-            tViewType = viewType;
-            header = ComponentHeader.getNewInstance(itemView.getContext());
-            container = ComponentContainer.getNewInstance(itemView.getContext());
+//            tViewType = viewType;
+            generalCard = GeneralCardView.getNewInstance(itemView.getContext());
+
         }
 
         @Override
         protected void onBind(FakeModel data) {
             String s = TestUtil.getFakeModel().getTitle();
             TestUtil.PrintLog(s);
-            header.setHead(s)
-                    .setSubHead(s);
-            header.setImage(true);
-            container.setHead(s + s)
-                    .setInfo(s)
-                    .setContent(s+s+s+s);
+            generalCard.bind(new GeneralCard().random());
         }
     }
 }

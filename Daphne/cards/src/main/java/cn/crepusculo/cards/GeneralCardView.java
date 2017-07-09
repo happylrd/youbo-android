@@ -3,7 +3,9 @@ package cn.crepusculo.cards;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import butterknife.BindView;
+
+import cn.crepusculo.component.ComponentContainer;
+import cn.crepusculo.component.ComponentHeader;
 import cn.crepusculo.model.GeneralCard;
 
 /**
@@ -18,8 +20,8 @@ import cn.crepusculo.model.GeneralCard;
  */
 
 public class GeneralCardView extends BaseCardView implements BaseCardView.bindData<GeneralCard>{
-    private ComponentHeader header;
-    private ComponentContainer container;
+    private ComponentHeader componentHeader;
+    private ComponentContainer componentContainer;
 
     public GeneralCardView(Context context) {
         super(context);
@@ -33,14 +35,15 @@ public class GeneralCardView extends BaseCardView implements BaseCardView.bindDa
         super(context, attrs, defStyle);
     }
 
+    public static GeneralCardView getNewInstance(Context context) {
+        return new GeneralCardView(context);
+    }
 
     @Override
     protected void initView() {
-        header = findViewById(R.id.header);
-        container = findViewById(R.id.container);
+        componentHeader = (ComponentHeader) findViewById(R.id.header);
+        componentContainer =(ComponentContainer) findViewById(R.id.container);
     }
-
-
 
     @Override
     protected int setLayout() {
@@ -49,11 +52,11 @@ public class GeneralCardView extends BaseCardView implements BaseCardView.bindDa
 
     @Override
     public void bind(GeneralCard data) {
-        header   .setHead   (data.getStreamTitle());
-        header   .setSubHead(data.getStreamSubtitle());
-        container.setHead   (data.getEventTitle());
-        container.setContent(data.getEventContent());
-        container.setInfo   (data.getEventInfo());
+        componentHeader.setHead   (data.getStreamTitle());
+        componentHeader.setSubHead(data.getStreamSubtitle());
+        componentContainer.setHead   (data.getEventTitle());
+        componentContainer.setContent(data.getEventContent());
+        componentContainer.setInfo   (data.getEventInfo());
     }
 
 }

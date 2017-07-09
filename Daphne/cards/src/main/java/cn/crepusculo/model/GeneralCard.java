@@ -1,5 +1,7 @@
 package cn.crepusculo.model;
 
+import cn.crepusculo.cards.R;
+
 /**
  * <h1>modify class name here</h1>
  * cn.crepusculo.cards
@@ -11,7 +13,13 @@ package cn.crepusculo.model;
  * @since 2017/7/8
  */
 
-public class GeneralCard {
+public class GeneralCard extends CardModel{
+    private String streamTitle;
+    private String streamSubtitle;
+    private String eventTitle;
+    private String eventInfo;
+    private String eventContent;
+
     public String getStreamTitle() {
         return streamTitle;
     }
@@ -57,14 +65,23 @@ public class GeneralCard {
         return this;
     }
 
-    private String streamTitle;
-    private String streamSubtitle;
-    private String eventTitle;
-    private String eventInfo;
-    private String eventContent;
-
     public GeneralCard(){
 
+    }
+
+    @Override
+    public int setType() {
+        return R.layout.item_card_general;
+    }
+
+    public GeneralCard random(){
+       this
+           .setStreamTitle(RandomData.title())
+           .setStreamSubtitle(RandomData.subTitle())
+           .setEventTitle(RandomData.title())
+           .setEventInfo(RandomData.person())
+           .setEventContent(RandomData.subTitle());
+       return this;
     }
 
 }

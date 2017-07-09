@@ -47,12 +47,9 @@ public abstract class BaseCardView extends FrameLayout{
     }
 
     protected void build(){
-        LayoutInflater.from(mContext).inflate(setLayout(), this);
+        LayoutInflater.from(mContext).inflate(getLayout(), this);
         initView();
     }
-
-
-    ;
 
     /**
      * set view component value in implementation
@@ -63,7 +60,9 @@ public abstract class BaseCardView extends FrameLayout{
      * set Layout will be inflated
      */
     protected abstract int setLayout();
-
+    protected int getLayout(){
+        return setLayout();
+    }
     /**
      * bind data here
      */

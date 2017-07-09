@@ -27,7 +27,7 @@ import io.happylrd.youbo.common.widget.component.FakeModel;
 public class EntranceActivity extends Activity implements View.OnClickListener{
     @BindView(R.id.login_btn)
     Button loginBtn;
-    @BindView(R.id.sample_card)
+    @BindView(R.id.card)
     GeneralCardView card;
 
     @Override
@@ -39,14 +39,11 @@ public class EntranceActivity extends Activity implements View.OnClickListener{
     protected void initWidget() {
         super.initWidget();
         loginBtn.setOnClickListener(this);
-        GeneralCard sample = new GeneralCard();
-        sample.setStreamTitle("Sample Here");
-        sample.setStreamSubtitle("You can change it at 'EntranceActivity.java'");
-        sample.setEventTitle("General Card");
-        sample.setEventInfo("By crepusculo");
-        sample.setEventContent(sample.toString());
+
+        GeneralCard sample = new GeneralCard().random();
 //        sample.setImageResId();
         card.bind(sample);
+
     }
 
     @Override
