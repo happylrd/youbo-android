@@ -1,10 +1,13 @@
-package cn.crepusculo.cards;
+package cn.crepusculo.component;
 
 import android.content.Context;
 
 import android.util.AttributeSet;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import cn.crepusculo.cards.BaseCardView;
+import cn.crepusculo.cards.R;
 
 
 /**
@@ -52,7 +55,7 @@ public class ComponentHeader extends BaseCardView {
     }
 
 
-    public static ComponentHeader getNewInstance(Context context) {
+    protected static ComponentHeader getNewInstance(Context context) {
         return new ComponentHeader(context);
     }
 
