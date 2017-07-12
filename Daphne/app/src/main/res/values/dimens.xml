@@ -12,9 +12,16 @@
     <!-- navigation-menu dimension resource end -->
 
     <!-- tab layout dimension resource start -->
-    <dimen name="tab_height">48dp</dimen>
+    <dimen name="tab_height">54dp</dimen>
     <dimen name="tab_padding_bottom_single_line">20dp</dimen>
+    <dimen name="navigation_margin">48dp</dimen>
+    <dimen name="login_avatar">64dp</dimen>
 
+    <dimen name="drawable">24dp</dimen>
+    <dimen name="card_padding">16dp</dimen>
+    <dimen name="zero">0dp</dimen>
+    <dimen name="coord_card_margin">24dp</dimen>
+    <dimen name="large_title">28dp</dimen>
     <!-- tab layout dimension resource end -->
 
 </resources>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Material" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
+
+
+    <style name="Material.Card" parent="Material">
+        <item name="android:layout_margin">8dp</item>
+    </style>
+
+    <style name="Material.Card.Header">
+        <item name="android:padding">0dp</item>
+        <item name="android:layout_margin">0dp</item>
+    </style>
+
+    <style name="Material.Card.Text" parent="Material.Card">
+        <item name="android:textColor">@color/text</item>
+    </style>
+
+    <style name="Material.Card.Text.Primary" parent="Material.Card.Text">
+        <item name="android:textSize">@dimen/card_header_text_size</item>
+    </style>
+
+    <style name="Material.Card.Text.Secondary" parent="Material.Card.Text">
+        <item name="android:textColor">@color/text_secondary</item>
+    </style>
+
+    <style name="Material.Card.Text.Primary.Background" parent="Material.Card.Text.Primary">
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">@dimen/card_header_text_size</item>
+    </style>
+
+    <style name="Material.Card.Text.Secondary.Background" parent="Material.Card.Text.Secondary">
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+    <dimen name="card_header_text_size">24sp</dimen>
+</resources>

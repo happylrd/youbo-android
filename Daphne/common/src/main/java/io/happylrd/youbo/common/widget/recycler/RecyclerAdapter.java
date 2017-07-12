@@ -2,11 +2,11 @@ package io.happylrd.youbo.common.widget.recycler;
 
 import android.support.annotation.LayoutRes;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
@@ -14,25 +14,21 @@ import java.util.List;
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import io.happylrd.youbo.common.R;
+import io.happylrd.youbo.common.util.TestUtil;
 
 public abstract class RecyclerAdapter<T>
         extends RecyclerView.Adapter<RecyclerAdapter.ViewHolder<T>>
-        implements View.OnClickListener, View.OnLongClickListener,
+        implements
         AdapterCallback<T> {
-    private final List<T> mDataList;
-    private AdapterListener<T> mListener;
+    protected List<T> mDataList;
 
     public RecyclerAdapter() {
         this(null);
     }
 
-    public RecyclerAdapter(AdapterListener<T> listener) {
-        this(new ArrayList<T>(), listener);
-    }
-
-    public RecyclerAdapter(List<T> dataList, AdapterListener<T> listener) {
+    public RecyclerAdapter(List<T> dataList) {
+        Log.e("Call Root Adapter","constructor"+dataList.size());
         this.mDataList = dataList;
-        this.mListener = listener;
     }
 
     /**
@@ -66,9 +62,10 @@ public abstract class RecyclerAdapter<T>
         // 设置View的Tag为ViewHolder, 进行双向绑定
         root.setTag(R.id.tag_recycler_holder, holder);
 
-        root.setOnClickListener(this);
-        root.setOnLongClickListener(this);
-
+//        root.setOnClickListener(this);
+//        root.setOnLongClickListener(this);
+        // 自定义监听
+        onCreateItem(root,viewType);
         // 进行界面注解绑定
         holder.unbinder = ButterKnife.bind(holder, root);
         // 绑定callback
@@ -76,11 +73,14 @@ public abstract class RecyclerAdapter<T>
 
         return holder;
     }
+    // 自定义监听
+    protected abstract void onCreateItem(View root, int viewType);
 
     protected abstract ViewHolder<T> onCreateViewHolder(View root, int viewType);
 
     @Override
     public void onBindViewHolder(ViewHolder<T> holder, int position) {
+        TestUtil.PrintLog("On bind view holder");
         T data = mDataList.get(position);
         holder.bind(data);
     }
@@ -124,29 +124,26 @@ public abstract class RecyclerAdapter<T>
         notifyDataSetChanged();
     }
 
-    @Override
-    public void onClick(View v) {
-        ViewHolder viewHolder = (ViewHolder) v.getTag(R.id.tag_recycler_holder);
-        if (this.mListener != null) {
-            int pos = viewHolder.getAdapterPosition();
-            this.mListener.onItemClick(viewHolder, mDataList.get(pos));
-        }
-    }
+//    @Override
+//    public void onClick(View v) {
+//        ViewHolder viewHolder = (ViewHolder) v.getTag(R.id.tag_recycler_holder);
+//        if (this.mListener != null) {
+//            int pos = viewHolder.getAdapterPosition();
+//            this.mListener.onItemClick(viewHolder, mDataList.get(pos));
+//        }
+//    }
+//
+//    @Override
+//    public boolean onLongClick(View v) {
+//        ViewHolder viewHolder = (ViewHolder) v.getTag(R.id.tag_recycler_holder);
+//        if (this.mListener != null) {
+//            int pos = viewHolder.getAdapterPosition();
+//            this.mListener.onItemLongClick(viewHolder, mDataList.get(pos));
+//            return true;
+//        }
+//        return false;
+//    }
 
-    @Override
-    public boolean onLongClick(View v) {
-        ViewHolder viewHolder = (ViewHolder) v.getTag(R.id.tag_recycler_holder);
-        if (this.mListener != null) {
-            int pos = viewHolder.getAdapterPosition();
-            this.mListener.onItemLongClick(viewHolder, mDataList.get(pos));
-            return true;
-        }
-        return false;
-    }
-
-    public void setListener(AdapterListener<T> adapterListener) {
-        this.mListener = adapterListener;
-    }
 
     /**
      * 自定义的监听器

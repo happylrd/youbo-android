@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".activity.EntranceActivity">
         </activity>
+        <activity android:name=".activity.TweetActivity">
+        </activity>
     </application>
 
 </manifest>

@@ -1,19 +1,20 @@
 package io.happylrd.daphne.fragment;
 
 import android.os.Bundle;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
+import java.util.ArrayList;
 import java.util.List;
 
+import cn.crepusculo.model.CardModel;
+import cn.crepusculo.model.ExpandableCardModel;
+import cn.crepusculo.model.GeneralCardModel;
 import io.happylrd.daphne.R;
 import io.happylrd.daphne.adapter.PageRecyclerAdapter;
 import io.happylrd.youbo.common.app.Fragment;
 import io.happylrd.youbo.common.util.TestUtil;
-import io.happylrd.youbo.common.widget.component.FakeModel;
-import io.happylrd.youbo.common.widget.recycler.RecyclerAdapter;
 
 /**
  * <h1>modify class name here</h1>
@@ -26,7 +27,7 @@ import io.happylrd.youbo.common.widget.recycler.RecyclerAdapter;
  * @since 2017/7/6
  */
 
-public class PageFragment extends Fragment implements RecyclerAdapter.AdapterListener {
+public class PageFragment extends Fragment{
 
     private static final String DISPLAY_PAGE = "DISPLAY_PAGE";
     private int mPageIdx;
@@ -41,17 +42,12 @@ public class PageFragment extends Fragment implements RecyclerAdapter.AdapterLis
 
     @Override
     protected int getContentLayout() {
-        TestUtil.PrintLog("p4:" + mPageIdx);
-        if (mPageIdx == TYPE.STAR.value) {
-            return R.layout.fragment_star;
-        }
-        return R.layout.fragment_suggest;
+        return mPageIdx;
     }
 
     @Override
     protected void initArgs(Bundle bundle) {
         mPageIdx = bundle.getInt(DISPLAY_PAGE);
-        TestUtil.PrintLog("p3:" + mPageIdx);
     }
 
     @Override
@@ -63,26 +59,50 @@ public class PageFragment extends Fragment implements RecyclerAdapter.AdapterLis
     protected void initData() {
         super.initData();
         switch (mPageIdx) {
-            case R.layout.fragment_star:
-                initPageStar();
+            case R.layout.fragment_gallery:
+                initPageGallery();
                 break;
             case R.layout.fragment_suggest:
                 initPageSuggest();
                 break;
+            case R.layout.fragment_notification:
+                initPageNotification();
+                break;
+            case R.layout.fragment_about_me:
+                initAboutMe();
+                break;
+            default:
         }
     }
+
+    private void initAboutMe() {
+        TestUtil.PrintLog(this.getContext(), "Load Page AboutMe Data");
+    }
+
+    private void initPageNotification() {
+        TestUtil.PrintLog(this.getContext(), "Load Page Notification Data");
+    }
+
 
     private void initPageSuggest() {
         TestUtil.PrintLog(this.getContext(), "Load Page Suggest Data");
     }
 
-    private void initPageStar() {
-        TestUtil.PrintLog(this.getContext(), "Load Page Star Data");
+    private void initPageGallery() {
+        TestUtil.PrintLog(this.getContext(), "Load Page Gallery Data");
         try {
             RecyclerView recycler = (RecyclerView) this.getView().findViewById(R.id.recycler);
 
-            List<FakeModel> list = TestUtil.getFakeModelList(10);
-            PageRecyclerAdapter<FakeModel> adapter = new PageRecyclerAdapter<>(list, this);
+            List<CardModel> list = new ArrayList<>();
+            list.add(new GeneralCardModel().random());
+            list.add(new GeneralCardModel().random());
+            list.add(new GeneralCardModel().random());
+            list.add(new ExpandableCardModel());
+            list.add(new GeneralCardModel().random());
+            list.add(new GeneralCardModel().random());
+            list.add(new GeneralCardModel().random());
+
+            PageRecyclerAdapter<CardModel> adapter = new PageRecyclerAdapter<>(list);
 
 
             LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
@@ -91,28 +111,21 @@ public class PageFragment extends Fragment implements RecyclerAdapter.AdapterLis
             recycler.setLayoutManager(new LinearLayoutManager(getActivity()));
             recycler.setHasFixedSize(true);
 
-            DividerItemDecoration dividerDrawerItem = new DividerItemDecoration (recycler.getContext(),
-                    linearLayoutManager.getOrientation());
-            recycler.addItemDecoration(dividerDrawerItem);
+//            DividerItemDecoration dividerDrawerItem = new DividerItemDecoration (recycler.getContext(),
+//                    linearLayoutManager.getOrientation());
+//            recycler.addItemDecoration(dividerDrawerItem);
 
         } catch (NullPointerException e) {
             TestUtil.PrintError(this.getView(),e.toString());
         }
     }
 
-    @Override
-    public void onItemClick(RecyclerAdapter.ViewHolder holder, Object data) {
-        TestUtil.PrintLog(getView(),((FakeModel)data).getTitle(),true);
-    }
-
-    @Override
-    public void onItemLongClick(RecyclerAdapter.ViewHolder holder, Object data) {
-
-    }
-
     private enum TYPE {
-        STAR(R.layout.fragment_star),
-        SUGGEST(R.layout.fragment_suggest);
+        STAR(R.layout.fragment_gallery),
+        SUGGEST(R.layout.fragment_suggest),
+        NOTIFICATION(R.layout.fragment_notification),
+        ABOUTME(R.layout.fragment_about_me);
+
         private int value;
 
         TYPE(int i) {

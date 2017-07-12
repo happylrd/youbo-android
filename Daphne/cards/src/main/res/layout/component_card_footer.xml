@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/component_card_footer"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    style="@style/Material.Card.Header"
+    >
+    <ImageButton
+        android:src="@drawable/ic_favorite_border_black_24dp"
+        android:layout_width="@dimen/card_drawable"
+        android:layout_height="@dimen/card_drawable"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="11dp" />
+
+</RelativeLayout>

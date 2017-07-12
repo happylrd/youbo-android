@@ -43,21 +43,27 @@ public class MainActivityPagerAdapter extends FragmentStatePagerAdapter {
         return mResIdList.length;
     }
 
-    @Override
-    public CharSequence getPageTitle(int position) {
-        /// TODO: using super method to return '', replace string with icon after
-//        return super.getPageTitle(position);
-        return getLayoutName(mResIdList[position]);
-    }
 
-    private CharSequence getLayoutName(int i) {
-        switch (i) {
-            case R.layout.fragment_star:
-                return mContext.getResources().getString(R.string.fragment_star);
-            case R.layout.fragment_suggest:
-                return mContext.getResources().getString(R.string.fragment_suggest);
-            default:
-                return mContext.getResources().getString(R.string.fragment_suggest);
-        }
-    }
+
+//    @Override
+//    public CharSequence getPageTitle(int position) {
+//        /// TODO: using super method to return '', replace string with icon after
+////        return super.getPageTitle(position);
+//        return getLayoutName(mResIdList[position]);
+//    }
+
+//    private CharSequence getLayoutName(int i) {
+//        switch (i) {
+//            case R.layout.fragment_gallery:
+//                return mContext.getResources().getString(R.string.fragment_gallery);
+//            case R.layout.fragment_suggest:
+//                return mContext.getResources().getString(R.string.fragment_suggest);
+//            case R.layout.fragment_notification:
+//                return mContext.getResources().getString(R.string.fragment_notification);
+//            case R.layout.fragment_about_me:
+//                return mContext.getResources().getString(R.string.fragment_about_me);
+//            default:
+//                return mContext.getResources().getString(R.string.fragment_suggest);
+//        }
+//    }
 }
