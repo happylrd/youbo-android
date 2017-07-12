@@ -32,5 +32,10 @@ dependencies {
     compile "com.jakewharton:butterknife:$rootProject.ext.butterknifeVersion"
     annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.ext.butterknifeVersion"
     testCompile 'junit:junit:4.12'
-    compile 'com.yarolegovich:discrete-scrollview:1.2.0'
+    //
+    compile 'com.ramotion.cardslider:card-slider:0.1.0'
+    // https://github.com/Ramotion/folding-cell-android
+    compile 'com.ramotion.foldingcell:folding-cell:1.2.1'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+
 }

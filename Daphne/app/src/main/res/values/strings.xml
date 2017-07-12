@@ -34,4 +34,12 @@
     <string name="fragment_star">Star</string>
     <string name="fragment_suggest">Suggest</string>
 
+    <string name="login_login">登陆</string>
+    <string name="login_username">username</string>
+    <string name="login_password">password</string>
+    <string name="login_user_name_hint">请输入您的用户名</string>
+    <string name="login_user_password">在此输入您的密码</string>
+    <string name="d_background">Background</string>
+    <string name="error_meg_invalid">请填写正确的用户名和密码</string>
+
 </resources>
