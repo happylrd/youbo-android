@@ -12,7 +12,13 @@ package cn.crepusculo.model;
  */
 
 public abstract class CardModel {
+    private String id;
     private int mType;
+
+    public CardModel(){
+        setLayoutType();
+    }
+
 
     public int getLayoutType() {
         return mType;
@@ -24,4 +30,12 @@ public abstract class CardModel {
         return this;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public CardModel setId(String id) {
+        this.id = id;
+        return this;
+    }
 }

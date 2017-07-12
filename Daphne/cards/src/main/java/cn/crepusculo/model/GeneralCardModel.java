@@ -13,7 +13,7 @@ import cn.crepusculo.cards.R;
  * @since 2017/7/8
  */
 
-public class GeneralCard extends CardModel{
+public class GeneralCardModel extends CardModel{
     private String streamTitle;
     private String streamSubtitle;
     private String eventTitle;
@@ -24,7 +24,7 @@ public class GeneralCard extends CardModel{
         return streamTitle;
     }
 
-    public GeneralCard setStreamTitle(String streamTitle) {
+    public GeneralCardModel setStreamTitle(String streamTitle) {
         this.streamTitle = streamTitle;
         return this;
     }
@@ -33,7 +33,7 @@ public class GeneralCard extends CardModel{
         return streamSubtitle;
     }
 
-    public GeneralCard setStreamSubtitle(String streamSubtitle) {
+    public GeneralCardModel setStreamSubtitle(String streamSubtitle) {
         this.streamSubtitle = streamSubtitle;
         return this;
     }
@@ -42,7 +42,7 @@ public class GeneralCard extends CardModel{
         return eventTitle;
     }
 
-    public GeneralCard setEventTitle(String eventTitle) {
+    public GeneralCardModel setEventTitle(String eventTitle) {
         this.eventTitle = eventTitle;
         return this;
     }
@@ -51,7 +51,7 @@ public class GeneralCard extends CardModel{
         return eventInfo;
     }
 
-    public GeneralCard setEventInfo(String eventInfo) {
+    public GeneralCardModel setEventInfo(String eventInfo) {
         this.eventInfo = eventInfo;
         return this;
     }
@@ -60,13 +60,13 @@ public class GeneralCard extends CardModel{
         return eventContent;
     }
 
-    public GeneralCard setEventContent(String eventContent) {
+    public GeneralCardModel setEventContent(String eventContent) {
         this.eventContent = eventContent;
         return this;
     }
 
-    public GeneralCard(){
-
+    public GeneralCardModel(){
+        super();
     }
 
     @Override
@@ -74,13 +74,14 @@ public class GeneralCard extends CardModel{
         return R.layout.item_card_general;
     }
 
-    public GeneralCard random(){
+    public GeneralCardModel random(){
        this
            .setStreamTitle(RandomData.title())
            .setStreamSubtitle(RandomData.subTitle())
            .setEventTitle(RandomData.title())
            .setEventInfo(RandomData.person())
-           .setEventContent(RandomData.subTitle());
+           .setEventContent(RandomData.subTitle())
+           .setId(RandomData.longdata());
        return this;
     }
 

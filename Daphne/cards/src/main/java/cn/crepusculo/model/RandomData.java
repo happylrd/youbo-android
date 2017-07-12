@@ -31,4 +31,8 @@ public class RandomData {
         String[] t = {"小明","小红","小智障","你老婆","热心市民刘先生","学十的宿舍","李瑞东","韩国某明星","WilliamAngry","Queen Vellonica"};
         return t[(int)(random.nextDouble() * t.length)];
     }
+
+    public static String longdata() {
+        return ""+random.nextDouble();
+    }
 }

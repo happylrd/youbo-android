@@ -43,4 +43,7 @@ dependencies {
     compile "com.github.vipulasri:timelineview:$rootProject.ext.timelineVersion"
 
     compile project(path: ':cards')
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+    compile 'com.sackcentury:shinebutton:0.1.9'
+    compile 'com.rengwuxian.materialedittext:library:2.1.4'
 }

@@ -41,7 +41,7 @@ public class ComponentContainer extends BaseCardView {
 
     @Override
     protected void initView() {
-        this.mHead = (TextView) findViewById(R.id.container_header);
+        this.mHead = (TextView) findViewById(R.id.header_header);
         this.mInfo = (TextView) findViewById(R.id.container_info);
         this.mContent = (TextView) findViewById(R.id.container_content);
     }

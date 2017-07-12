@@ -7,8 +7,6 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
-import cn.crepusculo.model.GeneralCard;
-
 /**
  * <h1>modify class name here</h1>
  * cn.crepusculo.view

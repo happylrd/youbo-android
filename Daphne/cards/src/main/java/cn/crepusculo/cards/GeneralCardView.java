@@ -1,12 +1,13 @@
 package cn.crepusculo.cards;
 
 import android.content.Context;
+import android.text.TextUtils;
 import android.util.AttributeSet;
-
+import android.util.Log;
 
 import cn.crepusculo.component.ComponentContainer;
 import cn.crepusculo.component.ComponentHeader;
-import cn.crepusculo.model.GeneralCard;
+import cn.crepusculo.model.GeneralCardModel;
 
 /**
  * <h1>modify class name here</h1>
@@ -19,7 +20,11 @@ import cn.crepusculo.model.GeneralCard;
  * @since 2017/7/7
  */
 
-public class GeneralCardView extends BaseCardView implements BaseCardView.bindData<GeneralCard>{
+public class GeneralCardView extends BaseCardView implements BaseCardView.bindData<GeneralCardModel> {
+    public ComponentHeader getComponentHeader() {
+        return componentHeader;
+    }
+
     private ComponentHeader componentHeader;
     private ComponentContainer componentContainer;
 
@@ -42,7 +47,7 @@ public class GeneralCardView extends BaseCardView implements BaseCardView.bindDa
     @Override
     protected void initView() {
         componentHeader = (ComponentHeader) findViewById(R.id.header);
-        componentContainer =(ComponentContainer) findViewById(R.id.container);
+        componentContainer = (ComponentContainer) findViewById(R.id.container);
     }
 
     @Override
@@ -51,12 +56,12 @@ public class GeneralCardView extends BaseCardView implements BaseCardView.bindDa
     }
 
     @Override
-    public void bind(GeneralCard data) {
-        componentHeader.setHead   (data.getStreamTitle());
-        componentHeader.setSubHead(data.getStreamSubtitle());
-        componentContainer.setHead   (data.getEventTitle());
-        componentContainer.setContent(data.getEventContent());
-        componentContainer.setInfo   (data.getEventInfo());
+    public void bind(GeneralCardModel data) {
+        componentHeader.setHead(data.getStreamTitle())
+                .setSubHead(data.getStreamSubtitle());
+        componentContainer.setHead(data.getEventTitle())
+                .setContent(data.getEventContent())
+                .setInfo(data.getId());
     }
 
 }
