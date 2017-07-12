@@ -6,12 +6,16 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
+import com.mikepenz.materialdrawer.AccountHeader;
+import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.AbstractDrawerItem;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
+import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
+import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,10 +59,22 @@ public class MainActivity extends Activity {
 
         int headRes = R.layout.layout_drawer_header;
         int toolbarRes = R.id.toolbar;
-
+        AccountHeader ac = new AccountHeaderBuilder()
+                .withActivity(this)
+                .withHeaderBackground(R.mipmap.place_holder)
+                .addProfiles(
+                        new ProfileDrawerItem().withName("Namehere").withEmail("Id here").withIcon(getResources().getDrawable(R.mipmap.avatar))
+                )
+                .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
+                    @Override
+                    public boolean onProfileChanged(View view, IProfile profile, boolean currentProfile) {
+                        return false;
+                    }
+                })
+                .build();
         DrawerBuilder builder = new DrawerBuilder()
                 .withActivity(this).withToolbar((Toolbar) findViewById(toolbarRes))
-                .withHeader(headRes)
+                .withAccountHeader(ac)
                 // 关闭默认选取
                 .withSelectedItem(-1)
                 .withOnDrawerItemClickListener(new DrawerItemClickListener());
