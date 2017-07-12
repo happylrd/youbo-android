@@ -8,6 +8,10 @@
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
+        app:titleTextColor="@color/white"
+        app:subtitleTextColor="@color/white"
+        android:titleTextColor="@color/white"
+        android:subtitleTextColor="@color/white"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         app:layout_scrollFlags="enterAlways|scroll"
@@ -17,6 +21,9 @@
         android:id="@+id/tablayout"
         android:layout_height="@dimen/tab_height"
         android:layout_width="match_parent"
+        app:tabTextColor="@color/white"
+        app:tabSelectedTextColor="@color/white"
+        app:tabIndicatorHeight="4dp"
         style="@style/Material.Toolbar.TabLayout"
         >
         <!--app:layout_scrollFlags="enterAlways|scroll"-->

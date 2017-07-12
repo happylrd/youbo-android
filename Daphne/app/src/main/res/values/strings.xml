@@ -31,8 +31,8 @@
         <item>Send Feedback</item>
     </string-array>
 
-    <string name="fragment_star">Star</string>
-    <string name="fragment_suggest">Suggest</string>
+    <string name="fragment_gallery">画廊</string>
+    <string name="fragment_suggest">热点</string>
 
     <string name="login_login">登陆</string>
     <string name="login_username">username</string>
@@ -41,5 +41,7 @@
     <string name="login_user_password">在此输入您的密码</string>
     <string name="d_background">Background</string>
     <string name="error_meg_invalid">请填写正确的用户名和密码</string>
+    <string name="fragment_notification">通知</string>
+    <string name="fragment_about_me">我的</string>
 
 </resources>

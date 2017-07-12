@@ -11,6 +11,7 @@
 
     <style name="Material" parent="AppTheme">
         <item name="android:listDivider">@drawable/item_divider</item>
+        <item name="drawerArrowStyle">@style/MaterialDrawer.DrawerArrowStyle</item>
     </style>
 
     <style name="Material.Splash" parent="Material">
@@ -70,5 +71,8 @@
         <item name="colorControlHighlight">@color/primary</item>
     </style>
 
-
+    <style name="MaterialDrawer.DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">false</item>
+        <item name="color">@android:color/white</item>
+    </style>
 </resources>

@@ -108,11 +108,27 @@ public class MainActivity extends Activity {
         mViewPager.setAdapter(
                 new MainActivityPagerAdapter(
                         this.getSupportFragmentManager(),
-                        new int[]{R.layout.fragment_star,R.layout.fragment_suggest},
+                        new int[]{
+                                R.layout.fragment_gallery,
+                                R.layout.fragment_suggest,
+                                R.layout.fragment_notification,
+                                R.layout.fragment_about_me
+                        },
                         this
                 )
         );
         mTabLayout.setupWithViewPager(mViewPager);
+        for (int i = 0; i < mTabLayout.getTabCount(); i++) {
+            if (i == 0){
+                mTabLayout.getTabAt(i).setIcon(R.drawable.ic_local_florist_24dp);
+            } else if (i==1){
+                mTabLayout.getTabAt(i).setIcon(R.drawable.ic_whatshot_24dp);
+            }else if (i==2){
+                mTabLayout.getTabAt(i).setIcon(R.drawable.ic_bell_24dp);
+            }else if (i==3){
+                mTabLayout.getTabAt(i).setIcon(R.drawable.ic_face_24dp);
+            }
+        }
     }
     private MainActivity initTablayout() {
         TestUtil.PrintLog(this,"Initial Tablayout Start...");

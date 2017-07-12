@@ -42,17 +42,12 @@ public class PageFragment extends Fragment{
 
     @Override
     protected int getContentLayout() {
-        TestUtil.PrintLog("p4:" + mPageIdx);
-        if (mPageIdx == TYPE.STAR.value) {
-            return R.layout.fragment_star;
-        }
-        return R.layout.fragment_suggest;
+        return mPageIdx;
     }
 
     @Override
     protected void initArgs(Bundle bundle) {
         mPageIdx = bundle.getInt(DISPLAY_PAGE);
-        TestUtil.PrintLog("p3:" + mPageIdx);
     }
 
     @Override
@@ -64,21 +59,37 @@ public class PageFragment extends Fragment{
     protected void initData() {
         super.initData();
         switch (mPageIdx) {
-            case R.layout.fragment_star:
-                initPageStar();
+            case R.layout.fragment_gallery:
+                initPageGallery();
                 break;
             case R.layout.fragment_suggest:
                 initPageSuggest();
                 break;
+            case R.layout.fragment_notification:
+                initPageNotification();
+                break;
+            case R.layout.fragment_about_me:
+                initAboutMe();
+                break;
+            default:
         }
     }
+
+    private void initAboutMe() {
+        TestUtil.PrintLog(this.getContext(), "Load Page AboutMe Data");
+    }
+
+    private void initPageNotification() {
+        TestUtil.PrintLog(this.getContext(), "Load Page Notification Data");
+    }
+
 
     private void initPageSuggest() {
         TestUtil.PrintLog(this.getContext(), "Load Page Suggest Data");
     }
 
-    private void initPageStar() {
-        TestUtil.PrintLog(this.getContext(), "Load Page Star Data");
+    private void initPageGallery() {
+        TestUtil.PrintLog(this.getContext(), "Load Page Gallery Data");
         try {
             RecyclerView recycler = (RecyclerView) this.getView().findViewById(R.id.recycler);
 
@@ -110,8 +121,11 @@ public class PageFragment extends Fragment{
     }
 
     private enum TYPE {
-        STAR(R.layout.fragment_star),
-        SUGGEST(R.layout.fragment_suggest);
+        STAR(R.layout.fragment_gallery),
+        SUGGEST(R.layout.fragment_suggest),
+        NOTIFICATION(R.layout.fragment_notification),
+        ABOUTME(R.layout.fragment_about_me);
+
         private int value;
 
         TYPE(int i) {
