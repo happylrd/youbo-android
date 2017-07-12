@@ -4,22 +4,22 @@
     style="@style/Material.NavigationMenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
-
-    <ImageButton
-        android:id="@+id/avatar"
-        android:layout_width="@dimen/navigation_avatar"
-        android:layout_height="@dimen/navigation_avatar" />
+    android:background="@color/primary"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/navigation_margin">
 
     <TextView
         android:id="@+id/name"
+        style="@style/Material.Card.Text.Primary.Background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/sample_id"
-        android:textSize="@dimen/navigation_text_size" />
+        android:textSize="@dimen/navigation_text_size"
+        android:textStyle="bold" />
 
     <TextView
         android:id="@+id/email"
+        style="@style/Material.Card.Text.Primary.Background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/sample_email"
