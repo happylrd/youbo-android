@@ -73,12 +73,12 @@ public class PageRecyclerAdapter<T> extends RecyclerAdapter {
     }
 
     private void registerOnClickGeneral(final View root) {
-                root.findViewById(R.id.header).setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View view) {
-                        Intent i = new Intent();
-                        i.setClass(root.getContext(), TweetActivity.class);
-                        root.getContext().startActivity(i);
+        root.findViewById(R.id.header).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent();
+                i.setClass(root.getContext(), TweetActivity.class);
+                root.getContext().startActivity(i);
             }
         });
     }

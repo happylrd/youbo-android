@@ -1,1 +1,1 @@
-include ':app', ':common', ':cards', ':followlibrary'
+include ':app', ':common', ':cards'
