@@ -63,10 +63,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_marginStart="@dimen/coord_card_margin"
-        app:layout_behavior="io.happylrd.daphne.behavior.AvatarBehavior">
+        app:layout_behavior="io.happylrd.daphne.behavior.TweetBehavior">
 
         <cn.crepusculo.component.FontFitTextView
-            app:layout_behavior="io.happylrd.daphne.behavior.AvatarBehavior"
+            app:layout_behavior="io.happylrd.daphne.behavior.TweetBehavior"
             android:id="@+id/card_title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -79,7 +79,7 @@
             android:textSize="24sp" />
 
         <cn.crepusculo.cards.PureCardView
-            android:id="@+id/content"
+            android:id="@+id/intro"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/card_title" />
@@ -88,7 +88,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:layout_below="@id/content"
+            android:layout_below="@id/intro"
             android:orientation="horizontal">
 
             <com.sackcentury.shinebuttonlib.ShineButton

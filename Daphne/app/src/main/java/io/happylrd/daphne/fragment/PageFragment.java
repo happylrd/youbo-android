@@ -1,18 +1,26 @@
 package io.happylrd.daphne.fragment;
 
 import android.os.Bundle;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.LinearLayout;
+
+import com.vansuita.materialabout.builder.AboutBuilder;
+import com.vansuita.materialabout.views.AboutView;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import cn.crepusculo.model.CardModel;
 import cn.crepusculo.model.ExpandableCardModel;
 import cn.crepusculo.model.GeneralCardModel;
+import cn.crepusculo.model.PureCardModelWithAvatar;
 import io.happylrd.daphne.R;
 import io.happylrd.daphne.adapter.PageRecyclerAdapter;
+import io.happylrd.daphne.adapter.PeopleRecyclerAdapter;
 import io.happylrd.youbo.common.app.Fragment;
 import io.happylrd.youbo.common.util.TestUtil;
 
@@ -27,7 +35,7 @@ import io.happylrd.youbo.common.util.TestUtil;
  * @since 2017/7/6
  */
 
-public class PageFragment extends Fragment{
+public class PageFragment extends Fragment {
 
     private static final String DISPLAY_PAGE = "DISPLAY_PAGE";
     private int mPageIdx;
@@ -77,10 +85,66 @@ public class PageFragment extends Fragment{
 
     private void initAboutMe() {
         TestUtil.PrintLog(this.getContext(), "Load Page AboutMe Data");
+        AboutView view = AboutBuilder.with(this.getContext())
+                .setPhoto(R.mipmap.profile_picture)
+                .setCover(R.mipmap.profile_cover)
+                .setName("Your Full Name")
+                .setSubTitle("Mobile Developer")
+                .setBrief("I'm warmed of mobile technologies. Ideas maker, curious and nature lover.")
+                .setAppIcon(R.mipmap.ic_launcher)
+                .setAppName(R.string.app_name)
+                .addGooglePlayStoreLink("8002078663318221363")
+                .addGitHubLink("user")
+                .addFacebookLink("user")
+                .addFiveStarsAction()
+                .setVersionNameAsAppSubTitle()
+                .addShareAction(R.string.app_name)
+                .setWrapScrollView(true)
+                .setLinksAnimated(true)
+                .setShowAsCard(true)
+                .build();
+        LinearLayout e = (LinearLayout) mRoot.findViewById(R.id.container);
+        view.setLayoutParams(new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT));
+        e.addView(view);
     }
 
     private void initPageNotification() {
         TestUtil.PrintLog(this.getContext(), "Load Page Notification Data");
+        try {
+            RecyclerView recycler = (RecyclerView) this.getView().findViewById(R.id.recycler);
+
+            List<PureCardModelWithAvatar> list = new ArrayList<>();
+            list.add((PureCardModelWithAvatar)new PureCardModelWithAvatar()
+                    .setPlaceHolderId(R.id.place_holder)
+                    .setContent("D")
+                    .setAuthor("C")
+                    .setDate(new Date())
+                    .setId("23333")
+            );
+            list.add((PureCardModelWithAvatar)new PureCardModelWithAvatar()
+                    .setPlaceHolderId(R.id.avatar)
+                    .setContent("D")
+                    .setAuthor("C")
+                    .setDate(new Date())
+                    .setId("23333")
+            );
+            PeopleRecyclerAdapter<PureCardModelWithAvatar> adapter = new PeopleRecyclerAdapter<>(list);
+
+
+            LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
+            recycler.setAdapter(adapter);
+            recycler.setLayoutManager(linearLayoutManager);
+            recycler.setHasFixedSize(true);
+
+            DividerItemDecoration dividerDrawerItem = new DividerItemDecoration (recycler.getContext(),
+                    linearLayoutManager.getOrientation());
+            recycler.addItemDecoration(dividerDrawerItem);
+
+        } catch (NullPointerException e) {
+            TestUtil.PrintError(this.getView(), e.toString());
+        }
     }
 
 
@@ -116,7 +180,7 @@ public class PageFragment extends Fragment{
 //            recycler.addItemDecoration(dividerDrawerItem);
 
         } catch (NullPointerException e) {
-            TestUtil.PrintError(this.getView(),e.toString());
+            TestUtil.PrintError(this.getView(), e.toString());
         }
     }
 
