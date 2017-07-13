@@ -23,6 +23,10 @@
         </activity>
         <activity android:name=".activity.TweetActivity">
         </activity>
+        <activity android:name=".activity.ProfileActivity">
+        </activity>
+        <activity android:name=".activity.FollowActivity">
+        </activity>
     </application>
 
 </manifest>

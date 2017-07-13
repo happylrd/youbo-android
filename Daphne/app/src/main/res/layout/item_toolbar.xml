@@ -2,30 +2,29 @@
 <android.support.design.widget.AppBarLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/toolbar_wrapper"
+    style="@style/Material"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    style="@style/Material">
+    android:layout_height="wrap_content">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar"
-        app:titleTextColor="@color/white"
-        app:subtitleTextColor="@color/white"
-        android:titleTextColor="@color/white"
-        android:subtitleTextColor="@color/white"
+        style="@style/Material"
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
+        android:background="@color/primary"
         app:layout_scrollFlags="enterAlways|scroll"
-        style="@style/Material" />
+        app:subtitleTextColor="@color/white"
+        app:titleTextColor="@color/white" />
 
     <android.support.design.widget.TabLayout
         android:id="@+id/tablayout"
-        android:layout_height="@dimen/tab_height"
-        android:layout_width="match_parent"
-        app:tabTextColor="@color/white"
-        app:tabSelectedTextColor="@color/white"
-        app:tabIndicatorHeight="4dp"
         style="@style/Material.Toolbar.TabLayout"
-        >
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/tab_height"
+        android:background="@color/primary"
+        app:tabIndicatorHeight="4dp"
+        app:tabSelectedTextColor="@color/white"
+        app:tabTextColor="@color/white">
         <!--app:layout_scrollFlags="enterAlways|scroll"-->
 
     </android.support.design.widget.TabLayout>

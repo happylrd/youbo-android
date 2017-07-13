@@ -1,5 +1,6 @@
 package io.happylrd.daphne.activity;
 
+import android.content.Intent;
 import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
@@ -105,6 +106,9 @@ public class MainActivity extends Activity {
     }
 
     private void _initTablayout(){
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        toolbar.setBackgroundColor(getResources().getColor(R.color.primary));
+        mTabLayout.setBackgroundColor(getResources().getColor(R.color.primary));
         mViewPager.setAdapter(
                 new MainActivityPagerAdapter(
                         this.getSupportFragmentManager(),
@@ -163,6 +167,14 @@ public class MainActivity extends Activity {
         @Override
         public boolean onItemClick(View view, int position, IDrawerItem drawerItem) {
             TestUtil.PrintLog(view,position,true);
+            switch (position){
+                case 5:
+                case 6:
+                    Intent i = new Intent();
+                    i.setClass(MainActivity.this,FollowActivity.class);
+                    startActivity(i);
+                    return false;
+            }
             return false;
         }
     }

@@ -19,7 +19,7 @@ public class PureCardModelWithAvatar extends PureCardModel {
     }
 
     public PureCardModelWithAvatar setPlaceHolderId(int placeHolderId) {
-        this.placeHolderId = placeHolderId;
+//        this.placeHolderId = placeHolderId;
         return this;
     }
 

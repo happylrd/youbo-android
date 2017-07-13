@@ -25,7 +25,7 @@ import io.happylrd.youbo.common.util.TestUtil;
  * @since 2017/7/10
  */
 
-public class AvatarBehavior extends CoordinatorLayout.Behavior<View> {
+public class TweetBehavior extends CoordinatorLayout.Behavior<View> {
     private final Context mContext;
     // 图片在 起始 居中
     private int cStartXPosition = 0;    // 起始的图片水平中心
@@ -40,7 +40,7 @@ public class AvatarBehavior extends CoordinatorLayout.Behavior<View> {
     private int cFinalWidth = 0;        // 图片最终的宽度
     private int actionBarSize = 0;
 
-    public AvatarBehavior(Context context, AttributeSet attrs) {
+    public TweetBehavior(Context context, AttributeSet attrs) {
         mContext = context;
     }
 

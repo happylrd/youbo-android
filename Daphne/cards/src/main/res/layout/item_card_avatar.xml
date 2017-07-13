@@ -23,7 +23,7 @@
             android:src="@mipmap/avatar" />
 
         <TextView
-            android:id="@+id/name"
+            android:id="@+id/framelayout"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignTop="@+id/avatar"
@@ -45,7 +45,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginTop="8dp"
             android:textSize="14sp"
-            android:layout_below="@+id/name"
+            android:layout_below="@+id/framelayout"
             android:layout_toEndOf="@+id/avatar" />
 
         <TextView

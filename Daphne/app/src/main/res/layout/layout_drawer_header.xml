@@ -9,7 +9,7 @@
     android:paddingTop="@dimen/navigation_margin">
 
     <TextView
-        android:id="@+id/name"
+        android:id="@+id/framelayout"
         style="@style/Material.Card.Text.Primary.Background"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

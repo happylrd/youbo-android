@@ -24,16 +24,24 @@ public class PureWithAvatarView extends BaseCardView implements BaseCardView.bin
     private TextView mInfo;
     private TextView mContent;
 
-    public PureWithAvatarView(Context context) {super(context);}
-    public PureWithAvatarView(Context context, AttributeSet attrs) {super(context, attrs);}
-    public PureWithAvatarView(Context context, AttributeSet attrs, int defStyle) {super(context, attrs, defStyle);}
+    public PureWithAvatarView(Context context) {
+        super(context);
+    }
+
+    public PureWithAvatarView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    public PureWithAvatarView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+    }
 
     @Override
     protected void initView() {
-        imageView = (CircleImageView)findViewById(R.id.avatar);
-        mName =(TextView)findViewById(R.id.name);
-        mInfo=(TextView)findViewById(R.id.info);
-        mContent =(TextView)findViewById(R.id.content);
+        imageView = (CircleImageView) findViewById(R.id.avatar);
+        mName = (TextView) findViewById(R.id.name);
+        mInfo = (TextView) findViewById(R.id.info);
+        mContent = (TextView) findViewById(R.id.intro);
     }
 
     @Override
@@ -48,6 +56,5 @@ public class PureWithAvatarView extends BaseCardView implements BaseCardView.bin
         mName.setText(data.getAuthor());
         mInfo.setText(data.getId());
         mContent.setText(data.getContent());
-
     }
 }
